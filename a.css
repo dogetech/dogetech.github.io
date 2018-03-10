@@ -1,0 +1,29 @@
+html, body {
+    font-family: Arial,"Helvetica Neue",Helvetica,sans-serif;
+
+}
+#connect {
+	float: left;
+}
+#smoothie
+{
+	width: 100vw;
+	height: 97vh;
+}
+#progress {
+
+position: absolute;
+    top: 10vh;
+        left: 50%;
+    transform: translateX(-50%);
+}
+
+#comfort {
+
+position: absolute;
+    top: 50vh;
+        left: 50%;
+    transform: translateX(-50%);
+    color: green;
+    font-size: 12em;
+}
