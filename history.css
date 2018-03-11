@@ -1,0 +1,8 @@
+html, body {
+    font-family: Arial,"Helvetica Neue",Helvetica,sans-serif;
+
+}
+#wrapper {
+	position: relative;
+	height: 95vh;
+}

@@ -87,6 +87,12 @@ var bar = new ProgressBar.Circle(document.getElementById('progress'), {
 bar.text.style.fontSize = '2rem';
 
 bar.animate(1.0, function() {
-window.location.replace('history.html');
+	let next = 'history.html';
+	if(window.location.hash.length > 1){
+		next += '#' + window.location.hash.replace('#', '') + ',' + comfort();//perhaps instead of comfort, move closer to zero to show improvement?
+	} else {
+		next += '#' + comfort();
+	}
+window.location.replace(next);
 });
 };

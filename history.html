@@ -4,11 +4,91 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Venus</title>
-		<link rel="stylesheet" href="a.css">
+		<link rel="stylesheet" href="history.css">
 	</head>
 	<body style="margin: 0; text-align: center;">
+		<div id="wrapper">
+			<canvas id="graph"></canvas>
+		</div>
+		<a id="survey">survey</a>
+		<script src="moment.js"></script>
+		<script src="chart.min.js"></script>
+		<script>
+			document.getElementById('survey').href="survey.html" + window.location.hash;
+		chartColors = {
+			red: 'rgb(255, 99, 132)',
+			orange: 'rgb(255, 159, 64)',
+			yellow: 'rgb(255, 205, 86)',
+			green: 'rgb(75, 192, 192)',
+			blue: 'rgb(54, 162, 235)',
+			purple: 'rgb(153, 102, 255)',
+			grey: 'rgb(201, 203, 207)'
+		};
+		var color = Chart.helpers.color;
+let before = [];
+let fakes = [-50, -23, 40, -4, 18, 60, 9, 33];
+let after = [];
+let fakes2 = [-40, -3, 30, -21, 15, 50, 14, 41];
+for (var i=7; i; --i) {
+        var d = new Date();
+        d.setDate(d.getDate() - i);
+        d.setHours(0,0,0,0);
+        before.push({ x: d , y: fakes[i]});
+        after.push({ x: d , y: fakes2[i]});
+    }
+		var config = {
+			type: 'line',
+			data: {
+				datasets: [{
+					label: "before",
+					backgroundColor: color(window.chartColors.red).alpha(0.5).rgbString(),
+					borderColor: window.chartColors.red,
+					fill: false,
+					data: before
+				}, {
+					label: "after",
+					backgroundColor: color(window.chartColors.blue).alpha(0.5).rgbString(),
+					borderColor: window.chartColors.blue,
+					fill: false,
+					data: after,
+				}]
+			},
+			options: {
+				maintainAspectRatio: false,
+				scales: {
+           xAxes: [{
+                type: 'time',
+                time: {
+                	unit: 'day'
+                }
+            }],
+					yAxes: [{
+						display: true,
+						position: "left",
+						scaleLabel: {
+							display: true,
+							labelString: "舒适度"
+						},ticks:{min: -100, max: 100}
+					}]
+				}
+			}
+		};
+		window.myLine = new Chart(document.getElementById("graph").getContext("2d"), config);
+		setTimeout(function() {
+		if(window.location.hash.length > 1){
+		let goods = window.location.hash.replace('#', '').split(',');
+						let amd = new Date();
+				amd.setHours(0,0,0,0);
+		switch(goods.length) {
+			case 2:
+				window.myLine.data.datasets[1].data.push({x: amd, y: goods[1]});
+			case 1:
+				window.myLine.data.datasets[0].data.push({x: amd, y: goods[0]});
+		}
+		window.myLine.update();
+	}
+		}, 1000)
 
-		<div id="comfort">FUCK</div>
-
+		</script>
 	</body>
 </html>
