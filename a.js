@@ -9,10 +9,10 @@ let temperature = new TimeSeries();
 temperature.sum = 0;
 function comfort() {
 	let ir2 = ir.sum/ir.data.length;
-	ir2 = (ir2 - 30000)*(100-(-100))/(50000-30000) + (-100);
+
 	let temp = temperature.sum/temperature.data.length;
-	temp = (temp - 25)*(100-(-100))/(32-25) + (-100);
-	let fuck = Math.floor((ir2+temp)/2);
+
+	let fuck = Math.floor(35000 + ir2/100 + 5*(temp-36));
 	if(fuck < 0) {
 		return Math.max(-100, fuck);
 	} else {
