@@ -84,6 +84,7 @@ bar.text.style.fontSize = '2rem';
 
 bar.animate(1.0, function() {
 	venus.gatt.disconnect();
+	smoothie.stop();
 	let next = 'history.html';
 	if(window.location.hash.length > 1){
 		next += '#' + window.location.hash.replace('#', '') + ',' + comfort();//perhaps instead of comfort, move closer to zero to show improvement?
