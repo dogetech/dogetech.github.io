@@ -20,7 +20,7 @@ document.getElementById('connect').onclick = async function() {
 	await venus.gatt.connect();
 	let service = await venus.gatt.getPrimaryService("6e400001-b5a3-f393-e0a9-e50e24dcca9e");
 	let characteristic = await service.getCharacteristic("6e400003-b5a3-f393-e0a9-e50e24dcca9e");
-	smoothie = new SmoothieChart({minValue: 30000, maxValue: 50000, millisPerPixel:10, labels:{/*fillStyle:'#000000'*/disabled:true}, grid:{fillStyle:'#FFFFFF'}});
+	smoothie = new SmoothieChart({minValue: 10000, maxValue: 200000, millisPerPixel:10, labels:{/*fillStyle:'#000000'*/disabled:true}, grid:{fillStyle:'#FFFFFF'}});
 	smoothie.streamTo(canvas);
 	smoothie.addTimeSeries(ir, { strokeStyle:'rgb(255, 0, 0)', fillStyle:'rgba(255, 0, 0, 0.2)', lineWidth:3 })
 	smoothie.addTimeSeries(temperature, { strokeStyle:'rgb(0, 0, 255)', fillStyle:'rgba(0, 0, 255, 0.2)', lineWidth:3 });
