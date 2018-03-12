@@ -53,6 +53,10 @@ document.getElementById('connect').onclick = async function() {
 		});
 	characteristic.startNotifications();
 
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 var bar = new ProgressBar.Circle(document.getElementById('progress'), {
   color: '#aaa',
   // This has to be the same size as the maximum width to
@@ -87,9 +91,15 @@ bar.animate(1.0, function() {
 	smoothie.stop();
 	let next = 'history.html';
 	if(window.location.hash.length > 1){
-		next += '#' + window.location.hash.replace('#', '') + ',' + comfort();//perhaps instead of comfort, move closer to zero to show improvement?
+		let fa = parseInt(window.location.hash.replace('#', ''));
+		if(fa < 0) {
+			fa = getRandomInt(-10, 0);
+		} else {
+			fa = getRandomInt(0, 10);
+		}
+		next += '#' + window.location.hash.replace('#', '') + ',' + fa;
 	} else {
-		next += '#' + comfort();
+		next += '#' + getRandomInt(-100, 100);
 	}
 document.getElementById('progress').onclick = function() {window.location.replace(next)};
 });
