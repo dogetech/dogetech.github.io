@@ -2,13 +2,12 @@
 
 
 let canvas = document.getElementById('smoothie')
-canvas.width = (window.innerWidth - 50) * 2;
-canvas.height = (window.innerHeight - 100) * 2;
+
 
 document.getElementById("smoothie").style.width = window.innerWidth - 50 + 'px';
 
 document.getElementById("smoothie").style.height = window.innerHeight - 100 + 'px';
-canvas.getContext('2d').scale(2,2);
+
 let venus;
 let beginning = false;
 let stuff = [];
