@@ -14,7 +14,7 @@
 		<script src="moment.js"></script>
 		<script src="chart.min.js"></script>
 		<script>
-			document.getElementById('survey').href="survey.html" + window.location.hash;
+			document.getElementById('survey').href="feedback.html" + window.location.hash;
 		chartColors = {
 			red: 'rgb(255, 99, 132)',
 			orange: 'rgb(255, 159, 64)',
@@ -67,7 +67,7 @@ for (var i=7; i; --i) {
 						position: "left",
 						scaleLabel: {
 							display: true,
-							labelString: "舒适度"
+							labelString: "comfort"
 						},ticks:{min: -100, max: 100}
 					}]
 				}
@@ -82,12 +82,19 @@ for (var i=7; i; --i) {
 		switch(goods.length) {
 			case 2:
 				window.myLine.data.datasets[1].data.push({x: amd, y: goods[1]});
+window.myLine.getDatasetMeta(1).data[window.myLine.data.datasets[1].data.length - 1].custom = {};
+				window.myLine.getDatasetMeta(1).data[window.myLine.data.datasets[1].data.length - 1].custom.backgroundColor = "rgba(0,0,225,1)";
+window.myLine.getDatasetMeta(1).data[window.myLine.data.datasets[1].data.length - 1].custom.radius = 7;
+
 			case 1:
 				window.myLine.data.datasets[0].data.push({x: amd, y: goods[0]});
+				window.myLine.getDatasetMeta(0).data[window.myLine.data.datasets[0].data.length - 1].custom = {};
+				window.myLine.getDatasetMeta(0).data[window.myLine.data.datasets[0].data.length - 1].custom.backgroundColor = "rgba(0,0,225,1)";
+window.myLine.getDatasetMeta(0).data[window.myLine.data.datasets[0].data.length - 1].custom.radius = 7;
 		}
 		window.myLine.update();
 	}
-		}, 1000)
+		}, 2000)
 
 		</script>
 	</body>
