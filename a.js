@@ -4,10 +4,6 @@
 let canvas = document.getElementById('smoothie')
 
 
-document.getElementById("smoothie").style.width = window.innerWidth - 50 + 'px';
-
-document.getElementById("smoothie").style.height = window.innerHeight - 100 + 'px';
-
 let venus;
 let beginning = false;
 let stuff = [];
