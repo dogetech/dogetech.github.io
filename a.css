@@ -7,8 +7,8 @@ html, body {
 }
 #smoothie
 {
-	width: 100%;
-	height: 92%;
+	width: 100vw;
+	height: 97vh;
 }
 #progress {
 
@@ -18,12 +18,22 @@ position: absolute;
     transform: translateX(-50%);
 }
 
-#comfort {
+#ir {
 
 position: absolute;
     top: 50vh;
-        left: 50%;
+        left: 25%;
     transform: translateX(-50%);
     color: green;
-    font-size: 4em;
+    font-size: 2em;
+}
+
+#temperature {
+
+position: absolute;
+    top: 50vh;
+        left: 75%;
+    transform: translateX(-50%);
+    color: red;
+    font-size: 2em;
 }

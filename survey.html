@@ -7,6 +7,14 @@
 		<link rel="stylesheet" href="history.css">
 	</head>
 	<body style="margin: 0; text-align: center;">
+		<input type="range" list="tickmarks">
+
+
+<datalist id="tickmarks">
+  <option value="-2" label="dry">
+  <option value="0" label="just right">
+  <option value="2" label="oily">
+</datalist>
 		<a id="retest">retest</a>
 		<script>
 			document.getElementById('retest').href='/'+window.location.hash;
